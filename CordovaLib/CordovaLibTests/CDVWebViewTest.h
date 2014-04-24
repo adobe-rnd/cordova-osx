@@ -17,29 +17,27 @@
  under the License.
  */
 
-#import <XCTest/XCTest.h>
+#import <SenTestingKit/SenTestingKit.h>
+#import <WebKit/WebKit.h>
 
-@interface CordovaLibTests : XCTestCase
+@class AppDelegate;
+@class CDVViewController;
 
-@end
+@interface CDVWebViewTest : SenTestCase
 
-@implementation CordovaLibTests
+@property (nonatomic, strong) WebView* webView;
 
-- (void)setUp
-{
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-}
+- (AppDelegate*)appDelegate;
+- (CDVViewController*)viewController;
+- (WebView*)webView;
 
-- (void)tearDown
-{
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
-- (void)testExample
-{
-    //XCT__Fail(@"No sdf implementation for \"%s\"", __PRETTY_FUNCTION__);
-}
-
+// Returns the already registered plugin object for the given class.
+- (id)pluginInstance:(NSString*)pluginName;
+// Destroys the existing webview and creates a new one.
+- (void)reloadWebView;
+// Runs the run loop until the given block returns true, or until a timeout
+// occurs.
+- (void)waitForConditionName:(NSString*)conditionName block:(BOOL (^)())block;
+// Convenience function for stringByEvaluatingJavaScriptFromString.
+- (NSString*)evalJs:(NSString*)code;
 @end

@@ -6,9 +6,9 @@
  to you under the Apache License, Version 2.0 (the
  "License"); you may not use this file except in compliance
  with the License.  You may obtain a copy of the License at
-
+ 
  http://www.apache.org/licenses/LICENSE-2.0
-
+ 
  Unless required by applicable law or agreed to in writing,
  software distributed under the License is distributed on an
  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -17,29 +17,31 @@
  under the License.
  */
 
-#import <XCTest/XCTest.h>
+#import "AppDelegate.h"
+#import "MainViewController.h"
 
-@interface CordovaLibTests : XCTestCase
+@implementation AppDelegate
 
-@end
 
-@implementation CordovaLibTests
+@synthesize window;
 
-- (void)setUp
+- (id)init
 {
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    self = [super init];
+    return self;
 }
 
-- (void)tearDown
+- (void) applicationDidStartLaunching:(NSNotification*) aNotification 
 {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
 }
 
-- (void)testExample
+- (void) applicationWillFinishLaunching:(NSNotification*)aNotification
 {
-    //XCT__Fail(@"No sdf implementation for \"%s\"", __PRETTY_FUNCTION__);
+}
+
+- (void) applicationDidFinishLaunching:(NSNotification*)aNotification 
+{
+
 }
 
 @end

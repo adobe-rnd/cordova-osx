@@ -17,29 +17,9 @@
  under the License.
  */
 
-#import <XCTest/XCTest.h>
+#import <Cocoa/Cocoa.h>
 
-@interface CordovaLibTests : XCTestCase
-
-@end
-
-@implementation CordovaLibTests
-
-- (void)setUp
+int main(int argc, const char * argv[])
 {
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    return NSApplicationMain(argc, argv);
 }
-
-- (void)tearDown
-{
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
-- (void)testExample
-{
-    //XCT__Fail(@"No sdf implementation for \"%s\"", __PRETTY_FUNCTION__);
-}
-
-@end
