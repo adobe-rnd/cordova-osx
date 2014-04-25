@@ -51,7 +51,7 @@
 
 - (AppDelegate*)appDelegate
 {
-    return nil;//[[Application sharedApplication] delegate];
+    return [[NSApplication sharedApplication] delegate];
 }
 
 - (CDVViewController*)viewController

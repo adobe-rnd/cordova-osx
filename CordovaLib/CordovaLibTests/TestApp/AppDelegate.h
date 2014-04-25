@@ -28,5 +28,7 @@
 @property (nonatomic, strong) IBOutlet NSWindow* window;
 @property (nonatomic, strong) IBOutlet CDVViewController* viewController;
 
+- (void)createViewController;
+- (void)destroyViewController;
 
 @end

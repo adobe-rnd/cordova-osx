@@ -64,6 +64,7 @@
 		70DAA9251908E82600AF3749 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70DAA9241908E82600AF3749 /* WebKit.framework */; };
 		70DAA9261908E84800AF3749 /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70BD673A18FF9DAE00A1EFCF /* libCordova.a */; };
 		70DAA9291908E93500AF3749 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DAA9281908E93500AF3749 /* MainViewController.m */; };
+		70E382C91909BBFF0029A2F0 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70E382C81909BBFF0029A2F0 /* SenTestingKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,7 +84,7 @@
 		70BD674118FF9DAE00A1EFCF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		70BD674218FF9DAE00A1EFCF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		70BD674518FF9DAE00A1EFCF /* CordovaLib-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CordovaLib-Prefix.pch"; sourceTree = "<group>"; };
-		70BD674D18FF9DAE00A1EFCF /* CordovaLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CordovaLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		70BD674D18FF9DAE00A1EFCF /* CordovaLibTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CordovaLibTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		70BD674E18FF9DAE00A1EFCF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		70BD675618FF9DAE00A1EFCF /* CordovaLibTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CordovaLibTests-Info.plist"; sourceTree = "<group>"; };
 		70BD675818FF9DAE00A1EFCF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -143,6 +144,7 @@
 		70DAA9241908E82600AF3749 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		70DAA9271908E93500AF3749 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		70DAA9281908E93500AF3749 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		70E382C81909BBFF0029A2F0 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 				70DAA9261908E84800AF3749 /* libCordova.a in Frameworks */,
 				70DAA9251908E82600AF3749 /* WebKit.framework in Frameworks */,
 				70DAA8F11908E37C00AF3749 /* Cocoa.framework in Frameworks */,
+				70E382C91909BBFF0029A2F0 /* SenTestingKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,7 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				70BD673A18FF9DAE00A1EFCF /* libCordova.a */,
-				70BD674D18FF9DAE00A1EFCF /* CordovaLibTests.xctest */,
+				70BD674D18FF9DAE00A1EFCF /* CordovaLibTests.octest */,
 				70DAA8F01908E37C00AF3749 /* TestApp.app */,
 			);
 			name = Products;
@@ -200,6 +203,7 @@
 		70BD673C18FF9DAE00A1EFCF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				70E382C81909BBFF0029A2F0 /* SenTestingKit.framework */,
 				70DAA9241908E82600AF3749 /* WebKit.framework */,
 				70BD673D18FF9DAE00A1EFCF /* Cocoa.framework */,
 				70BD674E18FF9DAE00A1EFCF /* XCTest.framework */,
@@ -419,7 +423,7 @@
 			);
 			name = CordovaLibTests;
 			productName = CordovaLibTests;
-			productReference = 70BD674D18FF9DAE00A1EFCF /* CordovaLibTests.xctest */;
+			productReference = 70BD674D18FF9DAE00A1EFCF /* CordovaLibTests.octest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		70DAA8EF1908E37C00AF3749 /* TestApp */ = {
@@ -693,9 +697,15 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "CordovaLibTests/CordovaLibTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+					"-framework",
+					SenTestingKit,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
+				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -711,9 +721,15 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CordovaLib/CordovaLib-Prefix.pch";
 				INFOPLIST_FILE = "CordovaLibTests/CordovaLibTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+					"-framework",
+					SenTestingKit,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
+				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
@@ -721,6 +737,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CordovaLibTests/TestApp/TestApp-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -729,6 +749,7 @@
 				);
 				INFOPLIST_FILE = "CordovaLibTests/TestApp/TestApp-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -738,10 +759,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CordovaLibTests/TestApp/TestApp-Prefix.pch";
 				INFOPLIST_FILE = "CordovaLibTests/TestApp/TestApp-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -784,6 +810,7 @@
 				70DAA9191908E37C00AF3749 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

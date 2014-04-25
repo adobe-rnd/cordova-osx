@@ -23,41 +23,7 @@
 #import "CDVViewController.h"
 #import "AppDelegate.h"
 
-@interface CDVStartPageTestViewController : ViewController
-@property (strong, nonatomic) CDVViewController* vc1;
-@property (strong, nonatomic) CDVViewController* vc2;
-@end
 
-@implementation CDVStartPageTestViewController
-@synthesize vc1 = _vc1, vc2 = _vc2;
-
-- (void)loadView
-{
-    _vc1 = [[CDVViewController alloc] init];
-    _vc1.wwwFolderName = @"www";
-    _vc1.startPage = @"index.html";
-    [self addChildViewController:_vc1];
-
-    _vc2 = [[CDVViewController alloc] init];
-    _vc2.wwwFolderName = @"www";
-    _vc2.startPage = @"index.html?delta=true";
-    [self addChildViewController:_vc2];
-
-    CGRect applicationFrame = [[UIScreen mainScreen] applicationFrame];
-    UIView* contentView = [[UIView alloc] initWithFrame:applicationFrame];
-
-    CGRect sub1, sub2;
-    CGRectDivide(applicationFrame, &sub1, &sub2, applicationFrame.size.height / 2, CGRectMinYEdge);
-    [_vc1.view setBounds:sub1];
-    [_vc2.view setBounds:sub2];
-
-    [contentView addSubview:_vc1.view];
-    [contentView addSubview:_vc2.view];
-
-    self.view = contentView;
-}
-
-@end
 
 @interface CDVStartPageTest : CDVWebViewTest
 @end
@@ -76,20 +42,11 @@
 
 - (void)testParametersInStartPage
 {
-    CDVStartPageTestViewController* rootVc = [[CDVStartPageTestViewController alloc] init];
-
-    self.appDelegate.window.rootViewController = rootVc;
-
+    [self viewController];
     NSString* geHREF = @"window.location.href";
-    [self waitForConditionName:@"getting href" block:^{
-        return (BOOL)(rootVc.vc1.webView.request != nil && rootVc.vc1.webView.request != nil);
-    }];
-
-    NSString* href = [rootVc.vc1.webView stringByEvaluatingJavaScriptFromString:geHREF];
+    NSString* href = [self.webView stringByEvaluatingJavaScriptFromString:geHREF];
     STAssertTrue([href hasSuffix:@"index.html"], @"href should point to index.html");
 
-    href = [rootVc.vc2.webView stringByEvaluatingJavaScriptFromString:geHREF];
-    STAssertTrue([href hasSuffix:@"index.html?delta=true"], @"href should point to index.html?delta=true");
 }
 
 @end

@@ -24,24 +24,39 @@
 
 
 @synthesize window;
+@synthesize viewController;
 
-- (id)init
-{
+- (id)init{
     self = [super init];
     return self;
 }
 
-- (void) applicationDidStartLaunching:(NSNotification*) aNotification 
-{
+- (void)createViewController {
+    NSAssert(!self.viewController, @"ViewController already created.");
+    
+    self.viewController = [[MainViewController alloc] initWithWindowNibName:@"MainViewController"];
+    self.viewController.wwwFolderName = @"www";
+    self.viewController.startPage = @"index.html";
+    [self.viewController showWindow:self];
 }
 
-- (void) applicationWillFinishLaunching:(NSNotification*)aNotification
+- (void)destroyViewController
 {
+    self.viewController = nil;
 }
 
-- (void) applicationDidFinishLaunching:(NSNotification*)aNotification 
-{
-
+- (void) applicationDidStartLaunching:(NSNotification*) aNotification {
 }
+
+- (void) applicationWillFinishLaunching:(NSNotification*)aNotification{
+}
+
+- (void) applicationDidFinishLaunching:(NSNotification*)aNotification {
+    // Create the main view on start-up only when not running unit tests.
+    if (!NSClassFromString(@"CDVWebViewTest")) {
+        [self createViewController];
+    }
+}
+
 
 @end
