@@ -7,12 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70718D80190A4201002ADC5F /* CDVBase64Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70718D7F190A4201002ADC5F /* CDVBase64Tests.m */; };
 		70BD673E18FF9DAE00A1EFCF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70BD673D18FF9DAE00A1EFCF /* Cocoa.framework */; };
-		70BD674F18FF9DAE00A1EFCF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70BD674E18FF9DAE00A1EFCF /* XCTest.framework */; };
-		70BD675018FF9DAE00A1EFCF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70BD673D18FF9DAE00A1EFCF /* Cocoa.framework */; };
-		70BD675318FF9DAE00A1EFCF /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70BD673A18FF9DAE00A1EFCF /* libCordova.a */; };
 		70BD675918FF9DAE00A1EFCF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 70BD675718FF9DAE00A1EFCF /* InfoPlist.strings */; };
-		70BD675B18FF9DAE00A1EFCF /* CordovaLibTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BD675A18FF9DAE00A1EFCF /* CordovaLibTests.m */; };
 		70BD679718FFA12D00A1EFCF /* CDVBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 70BD676F18FFA12D00A1EFCF /* CDVBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		70BD679818FFA12D00A1EFCF /* CDVBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BD677018FFA12D00A1EFCF /* CDVBridge.m */; };
 		70BD679918FFA12D00A1EFCF /* CDVViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 70BD677118FFA12D00A1EFCF /* CDVViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -78,6 +75,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		70718D7F190A4201002ADC5F /* CDVBase64Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVBase64Tests.m; sourceTree = "<group>"; };
 		70BD673A18FF9DAE00A1EFCF /* libCordova.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCordova.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		70BD673D18FF9DAE00A1EFCF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		70BD674018FF9DAE00A1EFCF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -88,7 +86,6 @@
 		70BD674E18FF9DAE00A1EFCF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		70BD675618FF9DAE00A1EFCF /* CordovaLibTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CordovaLibTests-Info.plist"; sourceTree = "<group>"; };
 		70BD675818FF9DAE00A1EFCF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		70BD675A18FF9DAE00A1EFCF /* CordovaLibTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CordovaLibTests.m; sourceTree = "<group>"; };
 		70BD676F18FFA12D00A1EFCF /* CDVBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVBridge.h; sourceTree = "<group>"; };
 		70BD677018FFA12D00A1EFCF /* CDVBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVBridge.m; sourceTree = "<group>"; };
 		70BD677118FFA12D00A1EFCF /* CDVViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVViewController.h; sourceTree = "<group>"; };
@@ -160,9 +157,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70BD675318FF9DAE00A1EFCF /* libCordova.a in Frameworks */,
-				70BD675018FF9DAE00A1EFCF /* Cocoa.framework in Frameworks */,
-				70BD674F18FF9DAE00A1EFCF /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,8 +239,8 @@
 				70DAA8F21908E37C00AF3749 /* TestApp */,
 				70DAA8E81908E07E00AF3749 /* CDVWebViewTest.h */,
 				70DAA8E91908E07E00AF3749 /* CDVWebViewTest.m */,
+				70718D7F190A4201002ADC5F /* CDVBase64Tests.m */,
 				70DAA8E61908E05900AF3749 /* CDVStartPageTests.m */,
-				70BD675A18FF9DAE00A1EFCF /* CordovaLibTests.m */,
 				70BD675518FF9DAE00A1EFCF /* Supporting Files */,
 			);
 			path = CordovaLibTests;
@@ -433,6 +427,7 @@
 				70DAA8EC1908E37C00AF3749 /* Sources */,
 				70DAA8ED1908E37C00AF3749 /* Frameworks */,
 				70DAA8EE1908E37C00AF3749 /* Resources */,
+				70718D7E190A3F96002ADC5F /* Copy cordova.js to www direcrtory */,
 			);
 			buildRules = (
 			);
@@ -500,6 +495,24 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		70718D7E190A3F96002ADC5F /* Copy cordova.js to www direcrtory */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy cordova.js to www direcrtory";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cp cordova.js \"$BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME/Contents/Resources/www/cordova.js\"";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		70BD673618FF9DAE00A1EFCF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -530,7 +543,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70DAA8EA1908E07E00AF3749 /* CDVWebViewTest.m in Sources */,
-				70BD675B18FF9DAE00A1EFCF /* CordovaLibTests.m in Sources */,
+				70718D80190A4201002ADC5F /* CDVBase64Tests.m in Sources */,
 				70DAA8E71908E05900AF3749 /* CDVStartPageTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

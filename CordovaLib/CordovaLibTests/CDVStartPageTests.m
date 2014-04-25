@@ -40,13 +40,24 @@
     [super tearDown];
 }
 
-- (void)testParametersInStartPage
+- (void)testDefaultStartPage
 {
     [self viewController];
     NSString* geHREF = @"window.location.href";
     NSString* href = [self.webView stringByEvaluatingJavaScriptFromString:geHREF];
     STAssertTrue([href hasSuffix:@"index.html"], @"href should point to index.html");
-
 }
+
+
+// currently fails
+
+//- (void)testParametersInStartPage
+//{
+//    self.startPage = @"index.html?delta=true";
+//    [self reloadWebView];
+//    NSString* geHREF = @"window.location.href";
+//    NSString* href = [self.webView stringByEvaluatingJavaScriptFromString:geHREF];
+//    STAssertTrue([href hasSuffix:@"index.html?delta=true"], @"href should point to index.html?delta=true");
+//}
 
 @end

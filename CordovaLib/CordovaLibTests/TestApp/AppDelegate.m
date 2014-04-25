@@ -23,7 +23,6 @@
 @implementation AppDelegate
 
 
-@synthesize window;
 @synthesize viewController;
 
 - (id)init{
@@ -31,17 +30,20 @@
     return self;
 }
 
-- (void)createViewController {
+- (void)createViewController: (NSString*) startPage {
     NSAssert(!self.viewController, @"ViewController already created.");
-    
+    if (startPage == nil) {
+        startPage = @"index.html";
+    }
     self.viewController = [[MainViewController alloc] initWithWindowNibName:@"MainViewController"];
     self.viewController.wwwFolderName = @"www";
-    self.viewController.startPage = @"index.html";
-    [self.viewController showWindow:self];
+    self.viewController.startPage = startPage;
+    [[self.viewController window] makeKeyAndOrderFront:self];
 }
 
 - (void)destroyViewController
 {
+    [self.viewController close];
     self.viewController = nil;
 }
 
@@ -54,7 +56,7 @@
 - (void) applicationDidFinishLaunching:(NSNotification*)aNotification {
     // Create the main view on start-up only when not running unit tests.
     if (!NSClassFromString(@"CDVWebViewTest")) {
-        [self createViewController];
+        [self createViewController: nil];
     }
 }
 

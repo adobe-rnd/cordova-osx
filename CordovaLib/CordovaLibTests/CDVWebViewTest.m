@@ -29,11 +29,12 @@
 
 @implementation CDVWebViewTest
 
-@synthesize webView;
+@synthesize startPage;
 
 - (void)setUp
 {
     [super setUp];
+    
     // Stop tests on the first failed assertion. Having the test stop on the
     // first exception makes it much easier to identify the source of the error.
     // On iOS < 5 there is a bug in SenTestingKit where the exception is
@@ -59,7 +60,9 @@
     // Lazily create the view controller so that tests that do not require it
     // are not slowed down by it.
     if (self.appDelegate.viewController == nil) {
-        [self.appDelegate createViewController];
+        
+        [self.appDelegate createViewController: self.startPage];
+
         // Things break if tearDown is called before the page has finished
         // loading (a JS error happens and an alert pops up), so enforce a wait
         // here.
@@ -85,7 +88,7 @@
 - (void)reloadWebView
 {
     [self.appDelegate destroyViewController];
-    [self.appDelegate createViewController];
+    [self viewController];
 }
 
 - (void)waitForConditionName:(NSString*)conditionName block:(BOOL (^)())block
